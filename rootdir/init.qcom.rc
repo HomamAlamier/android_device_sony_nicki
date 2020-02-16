@@ -224,7 +224,7 @@ service irsc_util /system/bin/irsc_util "/etc/sec_config"
 service rmt_storage /system/bin/rmt_storage
     class core
     user root
-    group system
+    group system wakelock
 
 service config_bt_addr /system/bin/btnvtool -O
     class core
@@ -249,12 +249,12 @@ on property:bluetooth.hciattach=false
 service qmuxd /system/bin/qmuxd
     class main
     user radio
-    group radio audio bluetooth gps
+    group radio audio bluetooth wakelock gps
 
 service netmgrd /system/bin/netmgrd
     class main
 	user root
-    group radio system
+    group radio system wakelock
 
 # Wifi firmware reload path
 chown wifi wifi /sys/module/wlan/parameters/fwpath
