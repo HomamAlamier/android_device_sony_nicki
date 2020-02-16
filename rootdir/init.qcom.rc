@@ -255,6 +255,9 @@ service netmgrd /system/bin/netmgrd
     class main
     group radio
 
+# Wifi firmware reload path
+chown wifi wifi /sys/module/wlan/parameters/fwpath
+
 # Adjust socket buffer to enlarge TCP receive window for high bandwidth
 # but only if ro.data.large_tcp_window_size property is set.
 on property:ro.data.large_tcp_window_size=true
