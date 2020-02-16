@@ -253,7 +253,8 @@ service qmuxd /system/bin/qmuxd
 
 service netmgrd /system/bin/netmgrd
     class main
-    group radio
+	user root
+    group radio system
 
 # Wifi firmware reload path
 chown wifi wifi /sys/module/wlan/parameters/fwpath
